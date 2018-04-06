@@ -1,0 +1,26 @@
+﻿@model BreakDownV3.OilType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OilType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OilTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OilTypeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OilTypeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

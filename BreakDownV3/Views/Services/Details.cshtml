@@ -1,0 +1,50 @@
+﻿@model BreakDownV3.Service
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Service</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Brake.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brake.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oil.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oil.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TuneUp.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TuneUp.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ServiceID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

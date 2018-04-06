@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BreakDownV3.Vehicle>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ModelID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ODO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleModel.MakeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (User.Identity.Name == item.AspNetUser.Email)//displays vehicles for logged in user only
+        {
+
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ModelID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.ODO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleModel.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleModel.MakeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleModel.ModelName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.VehicleID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.VehicleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.VehicleID })
+        </td>
+    </tr>
+        }
+    }
+
+</table>

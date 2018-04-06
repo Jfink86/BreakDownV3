@@ -1,0 +1,69 @@
+﻿@model IEnumerable<BreakDownV3.Oil>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ODOService)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NextODO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datetime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OilType1.OilTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vehicle.ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ODOService)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextODO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datetime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OilType1.OilTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vehicle.ID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OilID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OilID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OilID })
+        </td>
+    </tr>
+}
+
+</table>

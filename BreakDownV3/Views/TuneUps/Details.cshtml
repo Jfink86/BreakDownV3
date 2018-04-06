@@ -1,0 +1,90 @@
+﻿@model BreakDownV3.TuneUp
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TuneUp</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlugsChanged)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlugsChanged)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeltCondition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeltCondition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TireCondition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TireCondition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ODOServiced)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ODOServiced)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextODO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextODO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TuneUpID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
