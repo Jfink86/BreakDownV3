@@ -12,6 +12,7 @@ namespace BreakDownV3.Controllers
 {
     public class VehicleModelsController : Controller
     {
+
         private BreakDownV3Entities db = new BreakDownV3Entities();
 
         // GET: VehicleModels
@@ -122,6 +123,15 @@ namespace BreakDownV3.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        //trying and Failing
+        public JsonResult GetAll()
+        {
+            return Json(db.VehicleModels.ToList(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetAllYears()
+        {
+            return Json(db.VehicleModels.Select(mmy => mmy.Year).Distinct(), JsonRequestBehavior.AllowGet);
         }
     }
 }

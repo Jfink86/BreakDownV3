@@ -13,11 +13,13 @@ namespace BreakDownV3.Controllers
 {
     public class VehiclesController : Controller
     {
+        
         private BreakDownV3Entities db = new BreakDownV3Entities();
 
         // GET: Vehicles
         public ActionResult Index()
         {
+            
             var vehicles = db.Vehicles.Include(v => v.VehicleModel).Include(v => v.AspNetUser);
             return View(vehicles.ToList());
         }
@@ -54,13 +56,15 @@ namespace BreakDownV3.Controllers
         {
             if (ModelState.IsValid)
             {
+                
+                
                 vehicle.ID = User.Identity.GetUserId(); //This makes logged in user the user for the created vehicle
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ModelID = new SelectList(db.VehicleModels, "ModelID", "MakeName", vehicle.ModelID);
+            ViewBag.ModelID = new SelectList(db.VehicleModels, "ModelID", "MakeName", "ModelName", vehicle.ModelID);
             ViewBag.ID = new SelectList(db.AspNetUsers, "Id", "Email", vehicle.ID);
             return View(vehicle);
         }
@@ -133,6 +137,18 @@ namespace BreakDownV3.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public JsonResult GetAllYears()
+        {
+            return Json(db.VehicleModels.Select(mmy=>mmy.Year).Distinct(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetAllMakes()
+        {
+            return Json(db.VehicleModels.Select(mmy => mmy.MakeName).Distinct(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetAllModels()
+        {
+            return Json(db.VehicleModels.Select(mmy => mmy.ModelName).Distinct(), JsonRequestBehavior.AllowGet);
         }
     }
 }
